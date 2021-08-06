@@ -165,7 +165,7 @@ class Calculator {
 
     }
 
-
+    //fonction
     func divisionZero()  {
         for reads_The_Elements in 0...elements.count - 1 {
             print(reads_The_Elements," premier if ")
