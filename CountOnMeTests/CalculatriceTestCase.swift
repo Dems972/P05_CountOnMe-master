@@ -32,13 +32,6 @@ class CalculatriceTestCase: XCTestCase {
         XCTAssert(calculator.elements.last == "3")
     }
 
-//    func testSoustraction () {
-//        let calculator = Calculator()
-//        calculator.operationsToReduce = ["10", "-", "1"]
-//        XCTAssertEqual()
-//        print(testSoustraction())
-//    }
-
     func testSubstration() {
 
         calculator.tappedNumber(nuberTxt: "3")
@@ -69,7 +62,9 @@ class CalculatriceTestCase: XCTestCase {
         XCTAssert(calculator.elements.last == "1")
     }
 
-        // faire division par zero "ok"
+    func <#name#>() {
+        <#function body#>
+    }
         // 2 operation qui ne ce suive pas
     // changer calcule & gere les nopbre a virguel
         
