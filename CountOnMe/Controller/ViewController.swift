@@ -91,7 +91,7 @@ class ViewController: UIViewController {
 
         guard !calculator.expressionNoZeroDivision else {
             alert(titleAlert: "Zéro !", messsageAlert: "La division par zero est impossible !")
-            textView.text = "Error"
+            textView.text = "Erreur"
             return
         }
 
