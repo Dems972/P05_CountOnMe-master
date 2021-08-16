@@ -40,7 +40,6 @@ class Calculator {
     
     var expressionNoZeroDivision: Bool = false
 
-
     func tappedNumber(nuberTxt: String) {
         if expressionHaveResult {
             txtRecoveryCalculation = ""

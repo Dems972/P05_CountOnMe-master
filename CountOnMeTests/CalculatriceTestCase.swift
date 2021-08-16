@@ -169,8 +169,10 @@ class CalculatriceTestCase: XCTestCase {
     }
 
     func testExpresion() {
-        calculator.txtRecoveryCalculation = ""
+        //calculator.txtRecoveryCalculation = ""
+        calculator.tappedNumber(nuberTxt: "=")
 
-        XCTAssert(calculator.expressionHaveResult == false)
+        XCTAssert(calculator.expressionHaveResult == true )
+
     }
 }
