@@ -17,7 +17,7 @@ class CalculatriceTestCase: XCTestCase {
         calculator = Calculator()
     }
 
-    func testGivenIstanceOfCalculatrice_WhenAccessingIt_ThenItExists() {
+    func testInstanceOfCalculatrice() {
 
         XCTAssertNotNil(calculator)
     }
@@ -90,7 +90,7 @@ class CalculatriceTestCase: XCTestCase {
         XCTAssert(calculator.elements.last == "3.5")
     }
 
-    func testPriorité() {
+    func testPriority() {
         calculator.tappedNumber(nuberTxt: "8")
         calculator.addition()
         calculator.tappedNumber(nuberTxt: "2")
@@ -103,7 +103,7 @@ class CalculatriceTestCase: XCTestCase {
         XCTAssert(calculator.elements.last == "12")
     }
 
-    func testPriorité2() {
+    func testPriority2() {
         calculator.tappedNumber(nuberTxt: "10")
         calculator.substraction()
         calculator.tappedNumber(nuberTxt: "2")
@@ -140,6 +140,15 @@ class CalculatriceTestCase: XCTestCase {
         XCTAssert(calculator.expressionNoZeroDivision == false)
     }
 
+    func testZeroIsTrue(){
+        calculator.tappedNumber(nuberTxt: "1")
+        calculator.division()
+        calculator.tappedNumber(nuberTxt: "0")
+        calculator.calculate()
+
+        XCTAssert(calculator.expressionNoZeroDivision == true)
+    }
+
 
     func testclear() {
         calculator.tappedNumber(nuberTxt: "10")
@@ -169,10 +178,14 @@ class CalculatriceTestCase: XCTestCase {
     }
 
     func testExpresion() {
-        //calculator.txtRecoveryCalculation = ""
-        calculator.tappedNumber(nuberTxt: "=")
+        calculator.tappedNumber(nuberTxt: "10")
+        calculator.multiplication()
+        calculator.tappedNumber(nuberTxt: "5")
+        calculator.calculate()
+        calculator.tappedNumber(nuberTxt: "1")
 
-        XCTAssert(calculator.expressionHaveResult == true )
-
+        XCTAssert(calculator.txtRecoveryCalculation == "1")
     }
+
+
 }

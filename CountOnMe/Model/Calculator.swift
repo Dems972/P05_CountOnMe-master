@@ -37,45 +37,45 @@ class Calculator {
     var expressionHaveResult: Bool {
         return txtRecoveryCalculation.firstIndex(of: "=") != nil
     }
-    
+    // Check if no division by zero
     var expressionNoZeroDivision: Bool = false
-
+    //Method for tapped number
     func tappedNumber(nuberTxt: String) {
         if expressionHaveResult {
             txtRecoveryCalculation = ""
         }
         txtRecoveryCalculation.append(nuberTxt)
     }
-
+    //Method for addition
     func addition() {
         if canAddOperator {
             txtRecoveryCalculation.append(" + ")
        }
     }
-
+    //Method for substraction
     func substraction() {
         if canAddOperator {
             txtRecoveryCalculation.append(" - ")
         }
     }
-
+    //Method for multiplication
     func multiplication() {
         if canAddOperator {
             txtRecoveryCalculation.append(" x ")
         }
     }
-
+    //Method for division
     func division() {
         if canAddOperator {
             txtRecoveryCalculation.append(" / ")
         }
     }
-
+    //Method for Reset calculation
     func clear() {
         txtRecoveryCalculation.removeAll()
         operationsToReduce.removeAll()
     }
-
+    //Method to remove the decimal of the Double if result is an integer
     func convertResult(result: Double) {
         if result == Double(Int(result)) {
             let round = Int(result)
@@ -84,30 +84,21 @@ class Calculator {
             resultString = String(result)
         }
     }
-
+    //Method for calculation
     func calculate() {
         operationsToReduce = elements
-
-        if expressionHaveResult {
-            txtRecoveryCalculation = ""
-        } else {
-            divisionZero()
-
-    if expressionNoZeroDivision == false {
-        print(expressionNoZeroDivision)
-        while operationsToReduce.count > 1 {
+        divisionZero()
+        if expressionNoZeroDivision == false {
+            while operationsToReduce.count > 1 {
             var indexPrio = 0
             let indexOfMulti = operationsToReduce.firstIndex(of: "x")
             let indexOfDivision = operationsToReduce.firstIndex(of: "/")
 
-
-            if indexOfMulti == nil {
-                indexPrio = indexOfDivision ?? 1
-            } else if indexOfDivision == nil {
-                indexPrio = indexOfMulti ?? 1
-            }
-
-            print(indexPrio, "index")
+                if indexOfMulti == nil {
+                    indexPrio = indexOfDivision ?? 1
+                } else if indexOfDivision == nil {
+                    indexPrio = indexOfMulti ?? 1
+                }
 
             let left = Double(operationsToReduce[indexPrio - 1])!
             let operand = operationsToReduce[indexPrio]
@@ -120,27 +111,16 @@ class Calculator {
             case "/": result = left / right
             case "+": result = left + right
             case "-": result = left - right
-            case "=": return
             default: fatalError("Unknown operator !")
             }
-
             convertResult(result: result)
-
             operationsToReduce.removeSubrange(indexPrio - 1...indexPrio + 1)
             operationsToReduce.insert(resultString, at: indexPrio - 1)
-
-          }
-         }
+            }
         }
-
-        
-        print(operationsToReduce)
-        print(txtRecoveryCalculation)
         txtRecoveryCalculation.append(" = \(operationsToReduce.first!)")
-
     }
-
-    //fonction
+    //Methode to check division by zero 
     func divisionZero()  {
         for reads_The_Elements in 0...elements.count - 1 {
             if reads_The_Elements > 1 && reads_The_Elements <= elements.count - 1 {
