@@ -98,6 +98,12 @@ class Calculator {
                     indexPrio = indexOfDivision ?? 1
                 } else if indexOfDivision == nil {
                     indexPrio = indexOfMulti ?? 1
+                } else {
+                    if indexOfMulti! < indexOfDivision! {
+                        indexPrio = indexOfMulti ?? 1
+                    } else {
+                        indexPrio = indexOfDivision ?? 1
+                    }
                 }
 
             let left = Double(operationsToReduce[indexPrio - 1])!

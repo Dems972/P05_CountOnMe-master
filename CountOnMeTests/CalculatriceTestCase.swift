@@ -81,6 +81,22 @@ class CalculatriceTestCase: XCTestCase {
         XCTAssert(calculator.elements.last == "1")
     }
 
+    func testCalculateComplexe(){
+
+        calculator.tappedNumber(nuberTxt: "8")
+        calculator.addition()
+        calculator.tappedNumber(nuberTxt: "2")
+        calculator.multiplication()
+        calculator.tappedNumber(nuberTxt: "4")
+        calculator.substraction()
+        calculator.tappedNumber(nuberTxt: "3")
+        calculator.division()
+        calculator.tappedNumber(nuberTxt: "2")
+        calculator.calculate()
+
+        XCTAssert(calculator.elements.last == "14.5")
+    }
+
     func testNumberDecimal() {
         calculator.tappedNumber(nuberTxt: "7")
         calculator.division()
